@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "set NODE_ENV=dev&&npx run ./src/server.js",
+    "serve": "set NODE_ENV=development&&npx run ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
-    "mysql2": "^2.3.3",
+    "pg": "^8.7.1",
     "sequelize": "^6.14.1",
     "sequelize-cli": "^6.4.1"
   }

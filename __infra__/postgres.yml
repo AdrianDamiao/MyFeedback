@@ -3,19 +3,19 @@ services:
   db_production:
     image: postgres:latest
     restart: always
-    enviroment:
-      POSTGRES_USER: admin
-      POSTGRES_DB: production
-      POSTGRES_PASSWORD: 123@qWe
+    environment:
+        POSTGRES_USER: admin
+        POSTGRES_DB: MyFeedback
+        POSTGRES_PASSWORD: qWe123@
     ports:
       - 5432:5432
 
   db_homolog:
     image: postgres:latest
     restart: always
-    enviroment:
-      POSTGRES_USER: admin
-      POSTGRES_DB: homolog
-      POSTGRES_PASSWORD: 1234
+    environment:
+        POSTGRES_USER: admin
+        POSTGRES_DB: homolog
+        POSTGRES_PASSWORD: 1234Q
     ports:
-      - 5432:5432
+      - 5433:5432
