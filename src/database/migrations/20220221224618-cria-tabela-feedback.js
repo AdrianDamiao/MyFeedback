@@ -4,11 +4,11 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.createTable('feedbacks', {
       id: {
-        type: Sequelize.UUID,
+        type: Sequelize.BIGINT,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false,
         unique: true,
-        default: Sequelize.fn('uuid_generate_v4')
       },
       nota: {
         type: Sequelize.FLOAT,
@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false
       },
       colaborador_id: {
-        type: Sequelize.UUID,
+        type: Sequelize.BIGINT,
         allowNull: false,
         references: {
           model: 'colaboradores',

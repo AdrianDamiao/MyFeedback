@@ -4,11 +4,11 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.createTable('empresas', {
       id: {
-        type: Sequelize.UUID,
+        type: Sequelize.BIGINT,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false,
         unique: true,
-        default: Sequelize.fn('uuid_generate_v4')
       },
       nome: {
         type: Sequelize.STRING,

@@ -4,11 +4,11 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.createTable('colaboradores', {
       id: {
-        type: Sequelize.UUID,
+        type: Sequelize.BIGINT,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false,
         unique: true,
-        default: Sequelize.fn('uuid_generate_v4')
       },
       nome: {
         type: Sequelize.STRING,
@@ -23,7 +23,7 @@ module.exports = {
         allowNull: false
       },
       funcao_id: {
-        type: Sequelize.UUID,
+        type: Sequelize.BIGINT,
         allowNull: false,
         references: {
           model: 'funcoes',
@@ -33,7 +33,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       area_id: {
-        type: Sequelize.UUID,
+        type: Sequelize.BIGINT,
         allowNull: false,
         references: {
           model: 'areas',

@@ -36,24 +36,23 @@ class EmpresasController{
 
     async atualiza(req, res) {
         try {
-            const empresa = req.body; 
+            const empresa = req.body;
 
             const empresaNoDb = await EmpresaModel.findOne({
                 where: {
-                    id: empresa.id
+                    id: req.params.id
                 } 
             })
 
             if (empresaNoDb == null) {
                 res.json({
                     mensagem: 'Empresa inexistente.',
-                    status: '404 - Not Found'
+                    status: '404'
                 });
             }
 
-            empresaNoDb = empresa;
-
-            await EmpresaModel.update(empresaNoDb);
+            empresaNoDb.set(empresa);
+            await empresaNoDb.save();
 
             res.json({
                     mensagem: 'Empresa atualizada com sucesso.'
@@ -67,23 +66,27 @@ class EmpresasController{
 
     async deleta(req, res) {
         try {
-            const empresa = await EmpresaModel.findOne({
+
+            const empresaId = req.params.id;
+
+            const empresaNoDb = await EmpresaModel.findOne({
                 where: {
-                    id: empresa.id
+                    id: empresaId
                 }
             });
 
-            if (empresa == null) {
+            if (empresaNoDb == null) {
                 res.json({
                     mensagem: 'Empresa inexistente.'
                 });
             }
-
-            await EmpresaModel.destroy(empresa);
+            
+            await empresaNoDb.destroy();
 
             res.json({
                 mensagem: 'Empresa excluida com sucesso.'
             });
+
         } catch (erro) {
             res.json({
                 mensagem: 'Erro ao deletar empresa.'
