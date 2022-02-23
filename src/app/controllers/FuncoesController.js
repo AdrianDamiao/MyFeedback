@@ -21,9 +21,9 @@ class FuncoesController {
     async cria(req, res){
         try{
             const funcaoInputDTO = req.body;
-            console.log(funcaoInputDTO);
+
             const funcaoNoDb = await FuncaoModel.create(funcaoInputDTO);
-            console.log(funcaoNoDb);
+            
             res.json({
                 msg: 'Função cadastrada com sucesso.',
                 funcao: funcaoNoDb
