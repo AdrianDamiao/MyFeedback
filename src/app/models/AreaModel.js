@@ -5,7 +5,7 @@ class AreaModel extends Model {
         super.init({
             nome: DataTypes.STRING,
             descricao: DataTypes.STRING,
-            empresa_id: DataTypes.UUIDV4
+            empresa_id: DataTypes.BIGINT
         }, {
             sequelize,
             tableName: 'areas'
