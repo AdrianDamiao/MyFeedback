@@ -6,8 +6,8 @@ class ColaboradorModel extends Model {
             nome: DataTypes.STRING,
             email: DataTypes.STRING,
             senha: DataTypes.STRING,
-            funcao_id: DataTypes.UUIDV4,
-            area_id: DataTypes.UUIDV4
+            funcao_id: DataTypes.BIGINT,
+            area_id: DataTypes.BIGINT
         }, {
             sequelize,
             tableName: 'colaboradores'
