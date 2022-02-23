@@ -5,7 +5,7 @@ class FeedbackModel extends Model {
         super.init({
             nota: DataTypes.FLOAT,
             descricao: DataTypes.STRING(512),
-            colaborador_id: DataTypes.UUIDV4,
+            colaborador_id: DataTypes.BIGINT,
         }, {
             sequelize,
             tableName: 'feedbacks'

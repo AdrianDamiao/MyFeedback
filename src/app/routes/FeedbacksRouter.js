@@ -1,10 +1,9 @@
-const FeedbackModel = require('../models/FeedbackModel');
+const FeedbacksController = require('../controllers/FeedbacksController');
 
 const FeedbacksRouter = require('express').Router();
 
-FeedbacksRouter.post('/feedbacks', (req, res) => 
-{
-
-});
+FeedbacksRouter.get('/feedbacks', FeedbacksController.buscaTodos);
+FeedbacksRouter.post('/feedbacks', FeedbacksController.cria);
+FeedbacksRouter.delete('/feedbacks/:id', FeedbacksController.deleta);
 
 module.exports = FeedbacksRouter;
