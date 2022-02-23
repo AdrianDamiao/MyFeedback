@@ -5,7 +5,7 @@ class SessaoModel extends Model {
         super.init({
             token: DataTypes.STRING(512),
             status: DataTypes.BOOLEAN,
-            colaborador_id: DataTypes.UUIDV4,
+            colaborador_id: DataTypes.BIGINT,
         }, {
             sequelize,
             tableName: 'sessoes'
